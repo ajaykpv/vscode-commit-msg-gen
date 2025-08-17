@@ -1,0 +1,50 @@
+{
+    "name": "watsonx-commit-gen",
+    "displayName": "Watsonx Commit Message Generator",
+    "description": "Generate Git commit messages using Watsonx Code Assistant based on your staged changes.",
+    "version": "0.0.3",
+    "icon":"resources/commit.png",
+    "license":"MIT",
+    "publisher": "Ajay",
+    "repository": {
+        "type": "git",
+        "url": "https://github.ibm.com/Ajay-Krishnan-P-V/vscode-wca-commitgen.git"
+    },
+    "author": {
+        "name": "Ajay Krishnan"
+    },
+    "engines": {
+        "vscode": "^1.50.0"
+    },
+    "categories": [
+        "Source Control"
+    ],
+    "activationEvents": [
+        "onCommand:extension.generateCommitMessage"
+    ],
+    "main": "./src/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "wca.generateCommitMessage",
+                "title": "Generate Git Commit Message (WCA)",
+                "icon": {
+                    "light": "resources/light/stars-svgrepo-com(2).svg",
+                    "dark": "resources/dark/stars-svgrepo-com(2).svg"
+                }
+            }
+        ],
+        "menus": {
+            "scm/title": [
+                {
+                    "command": "wca.generateCommitMessage",
+                    "when": "scmProvider == git",
+                    "group": "navigation"
+                }
+            ]
+        }
+    },
+    "dependencies": {
+        "axios": "^1.9.0"
+    }
+}
